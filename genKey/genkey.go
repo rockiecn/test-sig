@@ -16,9 +16,9 @@ func main() {
 
 	// sk
 	privateKey := hex.EncodeToString(key.D.Bytes())
-	fmt.Println(privateKey)
+	fmt.Println("privateKey:", privateKey)
 
 	// address
 	address := crypto.PubkeyToAddress(key.PublicKey).Hex()
-	fmt.Println(address)
+	fmt.Println("address:", address)
 }
