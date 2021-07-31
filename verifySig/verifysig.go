@@ -16,20 +16,28 @@ func main() {
 	))
 }
 
+// from address, signature, message
 func verifySig(from, sigHex string, msg []byte) bool {
 	fromAddr := common.HexToAddress(from)
 
+	fmt.Println("from:", from)
+	fmt.Println("fromAddr:", fromAddr)
+
 	sig := hexutil.MustDecode(sigHex)
+	fmt.Println("sigHex:", sigHex)
+	fmt.Println("sig:", sig)
 	if sig[64] != 27 && sig[64] != 28 {
 		return false
 	}
 	sig[64] -= 27
 
+	// signature to pubkey
 	pubKey, err := crypto.SigToPub(signHash(msg), sig)
 	if err != nil {
 		return false
 	}
 
+	// pubkey to address
 	recoveredAddr := crypto.PubkeyToAddress(*pubKey)
 
 	return fromAddr == recoveredAddr
