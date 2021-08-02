@@ -11,6 +11,8 @@ import (
 )
 
 func main() {
+
+	//========================= sign
 	// get private key
 	privateKey, err := crypto.HexToECDSA("b91c265cabae210642d66f9d59137eac2fab2674f4c1c88df3b8e9e6c1f74f9f")
 	if err != nil {
@@ -24,6 +26,7 @@ func main() {
 		log.Fatal("cannot assert type: publicKey is not of type *ecdsa.PublicKey")
 	}
 
+	// pub ecdsa to bytes
 	publicKeyBytes := crypto.FromECDSAPub(publicKeyECDSA)
 
 	data := []byte("hello")
@@ -36,8 +39,10 @@ func main() {
 		log.Fatal(err)
 	}
 
+	// bytes to string
 	fmt.Println(hexutil.Encode(signature)) //
 
+	//====================== verify
 	// recover public key from signature
 	sigPublicKey, err := crypto.Ecrecover(hash.Bytes(), signature)
 	if err != nil {
