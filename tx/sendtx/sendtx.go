@@ -48,7 +48,7 @@ func SendTransaction(eth string, value *big.Int, toAddrHex string, data []byte, 
 	fmt.Println("nonce:", nonce)
 
 	// construct tx
-	//value := big.NewInt(1000000000000000000) // in wei (1 eth)
+	// value := big.NewInt(1000000000000000000) // in wei (1 eth)
 	gasLimit := uint64(21000) // in units
 	gasPrice, err := client.SuggestGasPrice(context.Background())
 	if err != nil {
