@@ -1,4 +1,4 @@
-module github.com/rockiecn/test-sig/verifysig
+module github.com/rockiecn/test-sig/sig/verifysig
 
 go 1.16
 

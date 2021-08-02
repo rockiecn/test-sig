@@ -1,4 +1,4 @@
-module github.com/rockiecn/test-sig/gensig
+module github.com/rockiecn/test-sig/sig/gensig
 
 go 1.16
 

@@ -11,11 +11,13 @@ import (
 )
 
 func main() {
+	// get private key
 	privateKey, err := crypto.HexToECDSA("b91c265cabae210642d66f9d59137eac2fab2674f4c1c88df3b8e9e6c1f74f9f")
 	if err != nil {
 		log.Fatal(err)
 	}
 
+	// get pubkey from private key
 	publicKey := privateKey.Public()
 	publicKeyECDSA, ok := publicKey.(*ecdsa.PublicKey)
 	if !ok {
@@ -28,6 +30,7 @@ func main() {
 	hash := crypto.Keccak256Hash(data)
 	fmt.Println(hash.Hex()) //
 
+	// sign
 	signature, err := crypto.Sign(hash.Bytes(), privateKey)
 	if err != nil {
 		log.Fatal(err)
@@ -35,11 +38,13 @@ func main() {
 
 	fmt.Println(hexutil.Encode(signature)) //
 
+	// recover public key from signature
 	sigPublicKey, err := crypto.Ecrecover(hash.Bytes(), signature)
 	if err != nil {
 		log.Fatal(err)
 	}
 
+	// compare 2 publickeys
 	matches := bytes.Equal(sigPublicKey, publicKeyBytes)
 	fmt.Println(matches) // true
 
