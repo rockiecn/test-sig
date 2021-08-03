@@ -1,4 +1,4 @@
-module github.com/rockiecn/test-sig/tree/main/sig/implement/sigapi
+module github.com/rockiecn/test-sig/sig/implement/sigapi
 
 go 1.16
 
