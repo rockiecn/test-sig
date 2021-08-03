@@ -114,6 +114,11 @@ github.com/prometheus/common v0.0.0-20181113130724-41aa239b4cce/go.mod h1:daVV7q
 github.com/prometheus/procfs v0.0.0-20181005140218-185b4288413d/go.mod h1:c3At6R/oaqEKCNdg8wHV1ftS6bRYblBhIjjI8uT2IGk=
 github.com/prometheus/tsdb v0.6.2-0.20190402121629-4f204dcbc150/go.mod h1:qhTCs0VvXwvX/y3TZrWD7rabWM+ijKTux40TwIPHuXU=
 github.com/rjeczalik/notify v0.9.1/go.mod h1:rKwnCoCGeuQnwBtTSPL9Dad03Vh2n40ePRrjvIXnJho=
+github.com/rockiecn/test-sig/sig/implement v0.0.0-20210802120338-58d692baa773/go.mod h1:CuFLeB+zKjkcdcq7UHtxLWn5f60L687xf7o3UEYn6ok=
+github.com/rockiecn/test-sig/sig/implement/sigapi v0.0.0-20210803064847-cba9f46297e9 h1:KZssxTIAuV4dPPyFQpjDLUeS3IeuHgMNknwkrq3DvjA=
+github.com/rockiecn/test-sig/sig/implement/sigapi v0.0.0-20210803064847-cba9f46297e9/go.mod h1:sun9B2OGY5rNCkxlB866sh9kHR4dLARzxdca1NzGCmc=
+github.com/rockiecn/test-sig/sig/implement/utils v0.0.0-20210803064847-cba9f46297e9 h1:j4ok3qI07+TlXSU0Y2j5SL+ZsL8EtriTx991SAS2Jtg=
+github.com/rockiecn/test-sig/sig/implement/utils v0.0.0-20210803064847-cba9f46297e9/go.mod h1:vrEef9WDmHmZabsJz0BUysPmZe7bBJZVoPok0duqWsM=
 github.com/rs/cors v0.0.0-20160617231935-a62a804a8a00/go.mod h1:gFx+x8UowdsKA9AchylcLynDq+nNFfI8FkUZdN/jGCU=
 github.com/rs/xhandler v0.0.0-20160618193221-ed27b6fd6521/go.mod h1:RvLn4FgxWubrpZHtQLnOf6EwhN2hEMusxZOhcW9H3UQ=
 github.com/russross/blackfriday/v2 v2.0.1/go.mod h1:+Rmxgy9KzJVeS9/2gXHxylqXiyQDYRxCVz55jmeOWTM=
