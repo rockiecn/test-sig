@@ -7,18 +7,15 @@ import (
 
 	"github.com/ethereum/go-ethereum/common"
 	"github.com/ethereum/go-ethereum/common/hexutil"
-	"github.com/rockiecn/test-sig/sig/implement/api"
+	"github.com/rockiecn/test-sig/sig/implement/sigapi"
 	"github.com/rockiecn/test-sig/sig/implement/utils"
 )
 
-var (
-	signed  = false
-	sigByte []byte
-	msg     = []byte("hello")
-	skHex   string
-)
-
 func main() {
+	var msg = []byte("hello") // msg to be signed
+	var signed = false        // flag
+	var sigByte []byte        // store signature
+	var skHex string          // for sk input
 
 	for cmd := "0"; true; {
 		fmt.Println(">> Intput cmd, 1 to sign, 2 to verify, 3 to clear signature")
@@ -32,7 +29,7 @@ func main() {
 		}
 		// []byte to common.Address
 		fromAddress := common.BytesToAddress(addrByte)
-		fmt.Println("addr:", fromAddress)
+		fmt.Println("fromAddress:", fromAddress)
 
 		switch cmd {
 		case "1":
@@ -41,16 +38,17 @@ func main() {
 				continue
 			}
 
-			fmt.Println("input private key:")
+			fmt.Println("Input private key:")
 			fmt.Scanf("%s", &skHex)
 			// string to byte
 			skByte := utils.Str2Byte(skHex)
-			fmt.Println("skByte:", skByte)
-			sigByte, err = api.Sign(msg, skByte)
+			// call sign
+			sigByte, err = sigapi.Sign(msg, skByte)
 			if err != nil {
 				log.Println("sign err:", err)
 				continue
 			}
+
 			signed = true
 
 			// bytes to string
@@ -58,7 +56,7 @@ func main() {
 
 		case "2":
 			if signed {
-				api.Verify(msg, sigByte, fromAddress)
+				sigapi.Verify(msg, sigByte, fromAddress)
 				continue
 			} else {
 				fmt.Println("not signed yet, run 1 to signed first")

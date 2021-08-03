@@ -1,4 +1,4 @@
-package api
+package sigapi
 
 import (
 	"fmt"
@@ -28,6 +28,9 @@ func Sign(msg []byte, skByte []byte) (sigRet []byte, err error) {
 		log.Fatal(err)
 		return nil, err
 	}
+
+	fmt.Println("len sigByte:", len(sigByte))
+	fmt.Println("len skByte:", len(skByte))
 
 	return sigByte, nil
 
