@@ -17,18 +17,20 @@ func main() {
 	var sigByte []byte        // store signature
 	var skHex string          // for sk input
 
-	for cmd := "0"; true; {
+	for {
+		var cmd string
+
 		fmt.Println(">> Intput cmd, 1 to sign, 2 to verify, 3 to clear signature")
 		fmt.Scanf("%s", &cmd)
 
-		// decode Hex string to []byte
-		addrByte, err := hex.DecodeString("9e0153496067C20943724b79515472195A7aEDAa")
+		// decode address , Hex string to []byte
+		fromAddrByte, err := hex.DecodeString("9e0153496067C20943724b79515472195A7aEDAa")
 		if err != nil {
 			log.Fatal("decode err.")
 			return
 		}
 		// []byte to common.Address
-		fromAddress := common.BytesToAddress(addrByte)
+		fromAddress := common.BytesToAddress(fromAddrByte)
 		fmt.Println("fromAddress:", fromAddress)
 
 		switch cmd {

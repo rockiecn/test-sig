@@ -29,8 +29,8 @@ func Sign(msg []byte, skByte []byte) (sigRet []byte, err error) {
 		return nil, err
 	}
 
-	fmt.Println("len sigByte:", len(sigByte))
-	fmt.Println("len skByte:", len(skByte))
+	//fmt.Println("len sigByte:", len(sigByte))
+	//fmt.Println("len skByte:", len(skByte))
 
 	return sigByte, nil
 
@@ -48,7 +48,7 @@ func Verify(msg []byte, sigByte []byte, fromAddress common.Address) (ok bool, er
 		log.Println("SigToPub err:", err)
 		return false, err
 	}
-	fmt.Println("pubKeyECDSA", pubKeyECDSA)
+	//fmt.Println("pubKeyECDSA", pubKeyECDSA)
 
 	// pub key to address
 	recoveredAddr := crypto.PubkeyToAddress(*pubKeyECDSA)
@@ -57,7 +57,7 @@ func Verify(msg []byte, sigByte []byte, fromAddress common.Address) (ok bool, er
 	fmt.Println("recoveredAddr", recoveredAddr)
 	matches := (fromAddress == recoveredAddr)
 
-	fmt.Println("matches:", matches)
+	//fmt.Println("matches:", matches)
 
 	return matches, nil
 
