@@ -50,8 +50,8 @@ func SendTransaction(eth string, value *big.Int, toAddrHex string, data []byte, 
 	fmt.Println("nonce:", nonce)
 
 	// construct tx
-	gasLimit := uint64(21000) // in units
-	gasPrice, err := client.SuggestGasPrice(context.Background())
+	gasLimit := uint64(21000)                                     // in uint
+	gasPrice, err := client.SuggestGasPrice(context.Background()) // gas price
 	if err != nil {
 		log.Fatal(err)
 		return err

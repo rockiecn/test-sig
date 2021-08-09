@@ -1,5 +1,10 @@
 package utils
 
+import (
+	"bytes"
+	"encoding/binary"
+)
+
 func Str2Byte(str string) []byte {
 	var ret []byte = []byte(str)
 	return ret
@@ -16,4 +21,11 @@ func MergeSlice(s1 []byte, s2 []byte) []byte {
 	copy(slice, s1)
 	copy(slice[len(s1):], s2)
 	return slice
+}
+
+func IntToBytes(n int) []byte {
+	data := int64(n)
+	bytebuf := bytes.NewBuffer([]byte{})
+	binary.Write(bytebuf, binary.BigEndian, data)
+	return bytebuf.Bytes()
 }
