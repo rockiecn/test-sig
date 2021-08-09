@@ -62,3 +62,4 @@ func Verify(msg []byte, sigByte []byte, fromAddress common.Address) (ok bool, er
 	return matches, nil
 
 }
+
